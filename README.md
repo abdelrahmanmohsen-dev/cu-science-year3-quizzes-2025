@@ -1,6 +1,6 @@
 # CU Science Year 3 Quizzes 2025
 
-This repository contains all third-year Computer Science quizzes for Cairo University.  
+This repository contains all third-year Science(Computer Science Major) quizzes for Cairo University.  
 Each subject is organized by semester, quiz number, and group.
 
 ## Folder Structure
