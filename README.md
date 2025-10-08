@@ -1,40 +1,91 @@
-📚 Cairo University – Faculty of Science
+👇
 
+🎓 Cairo University – Faculty of Science
 Third-Year Computer Science Quizzes Repository (2025)
 
-This repository is a collaborative academic resource created by and for third-year students of the Faculty of Science, Computer Science Department – Cairo University.
-It aims to collect and organize all course quizzes in one centralized location to make studying and review easier for everyone in the department.
+This repository is a collaborative academic project created by third-year students of the Faculty of Science, Computer Science Department – Cairo University.
+It aims to gather, organize, and maintain all quizzes across different subjects and groups in one centralized archive, making it easier for students to review and study efficiently.
 
-The repository is structured by semester, subject, quiz number, and group, ensuring that all materials are easy to find and navigate.
-Each quiz folder may include questions, solutions, and references contributed by students across different groups.
+📖 Table of Contents
 
+About
 
+Repository Structure
+
+Purpose
+
+Contribution Guidelines
+
+Notes
+
+Maintainers
+
+🧠 About
+
+This project is designed to support third-year Computer Science students by providing organized access to quizzes from all core subjects.
+Each quiz is sorted by semester, subject, quiz number, and group, ensuring consistency and easy navigation.
+
+The repository serves as a reliable academic resource to encourage collaboration, sharing, and mutual growth among students.
+
+🗂️ Repository Structure
 cu-science-year3-quizzes-2025/
+│
 ├── semester-2025-fall/
+│   │
 │   ├── Cs305-Algorithms/
+│   │   │
 │   │   └── quizzes/
+│   │       │
 │   │       └── quiz-1/
 │   │           ├── group-1/
 │   │           ├── group-2/
 │   │           ├── group-3/
 │   │           └── group-4/
-│ 
+│   │
 │   └── ...
+│
 └── README.md
-
-
 
 🎯 Purpose
 
-- Help students access and review past quizzes easily.
+Create a unified archive for all quizzes in the third year.
 
-- Encourage collaborative learning and resource sharing.
+Help students prepare efficiently for exams and assessments.
 
-- Serve as a study archive for future batches of Computer Science students.
+Encourage teamwork and collaboration through shared academic materials.
 
-🤝 Contribution
+Preserve valuable study content for future Computer Science batches.
 
-Students are welcome to contribute by uploading quizzes, solutions, or notes following the existing folder structure.
-Please ensure that your submissions are clear, properly labeled, and respectful of academic integrity.
+🤝 Contribution Guidelines
 
-Maintained by third-year Computer Science students – Cairo University, Faculty of Science.
+Fork the repository and clone it to your local environment.
+
+Navigate to the correct folder for your semester → subject → quiz → group.
+
+Add your quiz files (PDF, DOCX, images, etc.).
+
+Commit your changes with a clear message:
+
+git commit -m "Added Quiz 1 for Algorithms (Group 2)"
+
+
+Submit a Pull Request for review.
+
+⚠️ Important:
+
+Do not upload copyrighted material.
+
+Avoid adding irrelevant or duplicate content.
+
+Keep folder names consistent and lowercase with hyphens (-) instead of spaces.
+
+📝 Notes
+
+This repository is an educational, student-driven effort — not an official university project.
+
+All shared materials are for academic collaboration and personal study use only.
+
+👨‍💻 Maintainers
+
+Third-Year Computer Science Students – Cairo University, Faculty of Science (2025)
+Contributions and improvements are always welcome ❤️
