@@ -9,16 +9,19 @@ The repository is structured by semester, subject, quiz number, and group, ensur
 Each quiz folder may include questions, solutions, and references contributed by students across different groups.
 
 
-🗂️ Repository Structure
-semester-2025-fall/
-├── Cs305-Algorithms/
-│   └── quizzes/
-│       └── quiz-1/
-│           ├── group-1/
-│           ├── group-2/
-│           ├── group-3/
-│           └── group-4/
-└── ...
+cu-science-year3-quizzes-2025/
+├── semester-2025-fall/
+│   ├── Cs305-Algorithms/
+│   │   └── quizzes/
+│   │       └── quiz-1/
+│   │           ├── group-1/
+│   │           ├── group-2/
+│   │           ├── group-3/
+│   │           └── group-4/
+│ 
+│   └── ...
+└── README.md
+
 
 
 🎯 Purpose
