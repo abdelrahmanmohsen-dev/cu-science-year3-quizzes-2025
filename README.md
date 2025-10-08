@@ -8,6 +8,7 @@ It aims to collect and organize all course quizzes in one centralized location t
 The repository is structured by semester, subject, quiz number, and group, ensuring that all materials are easy to find and navigate.
 Each quiz folder may include questions, solutions, and references contributed by students across different groups.
 
+
 🗂️ Repository Structure
 semester-2025-fall/
 ├── Cs305-Algorithms/
@@ -18,6 +19,7 @@ semester-2025-fall/
 │           ├── group-3/
 │           └── group-4/
 └── ...
+
 
 🎯 Purpose
 
