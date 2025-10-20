@@ -8,10 +8,10 @@ import java.util.Arrays;
 *        1 and kn inclusive, where k is a constant positive integer. (Hint: Use a keyElement array.)-
 *
 * Solving Method:
-*       -Since there is Constrain on the problem that the numbers between 1 and k*n we can use a KeyElement array
-*        is an array of size (k*n + 1) and looping over the original array and for every element make its index in the key array to true
+*       -Since there is a constraint on the problem that the numbers are between 1 and k*n, we can use a KeyElement array
+*        is an array of size (k*n + 1), then looping over the original array and for every element, set its index in the key array to true
 *
-*       -Then if I start iterating over the key array I will find that every element is in the right place
+*       -Then, if I start iterating over the key array, I will find that every element is in the right place
 *
 * Time Complexity:
 *       -Total time complexity O(kn + n) simplifies to O(n + n), which is O(n).
@@ -38,11 +38,11 @@ public class Group_1 {
                 arr[idx++] = i;
         }
 
-        /* In other version of the problem the elements will not be distinct
-        *   in this case we instead of a boolean array we can use an integer array
-        *   and for every element of the array add 1 to its index
+        /* In another version of the problem, the elements will not be distinct
+        *   In this case we instead of a boolean array we can use an integer array
+        *   and for every element of the array, add 1 to its index
         *
-        *  So When I start reassigning my original array when iterating over the key array I add every element its corresponding amount of times in the key array
+        *  So, when I start reassigning my original array when iterating over the key array, I add every element its corresponding number of times in the key array
         * */
     }
 
