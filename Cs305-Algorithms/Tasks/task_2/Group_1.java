@@ -1,5 +1,3 @@
-package Lab;
-
 public class Group_1 {
 
     /*
