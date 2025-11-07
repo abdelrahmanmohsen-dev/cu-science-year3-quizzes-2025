@@ -2,99 +2,105 @@ import java.util.Arrays;
 
 /**
  * Problem:
- * - Count the total number of occurrences of a specific integer
- * in a given array.
+ * - Check if a given array of integers is sorted in ascending order.
  * <p>
  * Time Complexity:
  * O(N) - where N is the length of the array.
- * Both solutions must visit every element in the array to guarantee
- * a correct count.
+ * Both solutions must visit every element in the worst case to
+ * confirm that the entire array is sorted.
  */
 public class Group_3 {
 
     /**
-     * Method 1 (Linear Recursion): Checks the element at the 'start' index
-     * and adds the result to the recursive call for the rest of the array.
+     * Method 1 (Linear Recursion): Checks if the current element
+     * (at 'idx') is less than or equal to the next element.
      * <p>
-     * It moves through the array one element at a time (from start to end).
+     * If it is, it recurses to check the next pair (idx + 1).
+     * If it's not, it immediately returns false.
      *
-     * @param array The array to search in.
-     * @param num   The number to count.
-     * @param start The current index to check.
-     * @return The count of 'num' from 'start' to the end of the array.
+     * @param arr The array to check.
+     * @param idx The current index to check (starts at 0).
+     * @return true if the array is sorted, false otherwise.
      */
-    public static int CountNum(int[] array, int num, int start) {
-        // Base case: If we have reached the end of the array, stop.
-        if (array.length == start) return 0;
+    public static boolean isSorted(int[] arr, int idx) {
+        // Base case: If we're at the last element, it's sorted.
+        if (idx >= arr.length - 1) return true;
 
-        int count = 0;
-
-        // Check the current element
-        if (array[start] == num) count++;
-
-        // Add the result (0 or 1) to the count from the rest of the array
-        return count + CountNum(array, num, start + 1);
+        // Check the current pair
+        if (arr[idx] > arr[idx + 1]) {
+            return false;
+        } else {
+            // Recurse on the rest of the array
+            return isSorted(arr, idx + 1);
+        }
     }
 
     /**
      * Method 2 (Divide and Conquer): Splits the array into two halves
-     * and recursively counts the occurrences in each half.
-     * <p>
-     * The final count is the sum of the counts from the left and right halves.
+     * and checks three things:
+     * 1. Is the left half sorted (recursive call)?
+     * 2. Is the right half sorted (recursive call)?
+     * 3. Is the "seam" (the last element of the left half and the
+     * first of the right half) sorted?
      *
-     * @param array The array to search in.
-     * @param num   The number to count.
-     * @param start The starting index of the current subarray.
-     * @param end   The ending index of the current subarray.
-     * @return The count of 'num' within the specified range [start, end].
+     * @param arr The array to check.
+     * @param l   The left bound (start) of the subarray.
+     * @param r   The right bound (end) of the subarray.
+     * @return true if the subarray [l, r] is sorted, false otherwise.
      */
-    public static int CountNumDAC(int[] array, int num, int start, int end) {
-        // Base case: If the subarray has only one element
-        if (start == end) {
-            return (array[start] == num) ? 1 : 0;
-        }
+    public static boolean isSortedDAC(int[] arr, int l, int r) {
+        // Base case: An array of 0 or 1 element is always sorted.
+        if (l >= r) return true;
 
-        // Divide: Calculate the middle index
-        int mid = start + (end - start) / 2;
+        // Divide: Find the middle
+        int mid = l + (r - l) / 2;
 
-        // Conquer: Recurse on the left half
-        int leftCount = CountNumDAC(array, num, start, mid);
+        // Check the "seam" between the two halves.
+        // This check is crucial and must be done.
+        boolean IsTheMidSorted = (arr[mid] <= arr[mid + 1]);
 
-        // Conquer: Recurse on the right half
-        int rightCount = CountNumDAC(array, num, mid + 1, end);
-
-        // Combine: Return the sum of both halves
-        return leftCount + rightCount;
+        // Conquer and Combine:
+        // Return true ONLY if the seam is sorted AND
+        // the left half is sorted AND the right half is sorted.
+        return IsTheMidSorted
+                && isSortedDAC(arr, l, mid)
+                && isSortedDAC(arr, mid + 1, r);
     }
 
-
     public static void main(String[] args) {
-        // TestCase 1 (using DAC)
-        int[] arr1 = {1, 2, 3, 3, 4, 3};
-        int num1 = 3;
-        System.out.println("DAC Count of : " + num1);
-        System.out.println("in " + Arrays.toString(arr1));
-        System.out.println("is: " + CountNumDAC(arr1, num1, 0, arr1.length - 1));
-        // Expected: 3
+        // TestCase 1 (DAC, Sorted)
+        int[] arr1 = {10, 20, 30, 40, 50};
+        System.out.println("DAC Check on : " + Arrays.toString(arr1));
+        // We must check if length > 0 before accessing arr.length - 1
+        boolean res1 = (arr1.length <= 1) ? true : isSortedDAC(arr1, 0, arr1.length - 1);
+        System.out.println("is: " + (res1 ? "Sorted" : "Not Sorted"));
+        // Expected: Sorted
 
         System.out.println("================================");
 
-        // TestCase 2 (using Linear Recursion)
-        int[] arr2 = {5, 8, 5, 1, 5, 9, 5};
-        int num2 = 5;
-        System.out.println("Linear Count of : " + num2);
-        System.out.println("in " + Arrays.toString(arr2));
-        System.out.println("is: " + CountNum(arr2, num2, 0));
-        // Expected: 4
+        // TestCase 2 (Linear, Not Sorted)
+        int[] arr2 = {1, 2, 5, 4, 6};
+        System.out.println("Linear Check on : " + Arrays.toString(arr2));
+        boolean res2 = isSorted(arr2, 0);
+        System.out.println("is: " + (res2 ? "Sorted" : "Not Sorted"));
+        // Expected: Not Sorted
 
         System.out.println("================================");
 
-        // TestCase 3 (Number not present)
-        int[] arr3 = {10, 20, 30, 40};
-        int num3 = 7;
-        System.out.println("DAC Count of : " + num3);
-        System.out.println("in " + Arrays.toString(arr3));
-        System.out.println("is: " + CountNumDAC(arr3, num3, 0, arr3.length - 1));
-        // Expected: 0
+        // TestCase 3 (DAC, Sorted with Duplicates)
+        int[] arr3 = {1, 2, 2, 3, 4, 4};
+        System.out.println("DAC Check on : " + Arrays.toString(arr3));
+        boolean res3 = (arr3.length <= 1) ? true : isSortedDAC(arr3, 0, arr3.length - 1);
+        System.out.println("is: " + (res3 ? "Sorted" : "Not Sorted"));
+        // Expected: Sorted
+
+        System.out.println("================================");
+
+        // TestCase 4 (Linear, Empty Array)
+        int[] arr4 = {};
+        System.out.println("Linear Check on : " + Arrays.toString(arr4));
+        boolean res4 = isSorted(arr4, 0);
+        System.out.println("is: " + (res4 ? "Sorted" : "Not Sorted"));
+        // Expected: Sorted
     }
 }

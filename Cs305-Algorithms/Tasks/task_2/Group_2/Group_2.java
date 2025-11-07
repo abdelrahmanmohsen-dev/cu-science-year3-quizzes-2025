@@ -1,87 +1,91 @@
 /**
  * Problem:
- * - Reverse the digits of an integer without using strings.
+ * - write a recursive method to reverse a string
+ * don't use any built-in functions or stringBuilder
+ * don't use SUBSTRING
+ * don't change the input string.
  * <p>
- * Time Complexity (Both Methods):
- * O(N) - where N is the number of digits in the integer.
- * Both solutions must process each digit of the number exactly once.
+ * Time Complexity:
+ * See individual method comments. Due to string concatenation
+ * (which creates new strings), the complexities are not O(N).
  */
 public class Group_2 {
 
     /**
-     * Method 1 (Iterative): Uses a while-loop to build the reversed number.
+     * Method 1 (Linear Recursion): Takes the character at the current index
+     * and appends it to the recursive result of the rest of the string.
      * <p>
-     * In each iteration, it "pops" the last digit off the original number
-     * (using {@code num % 10}) and "pushes" it onto the end of the
-     * {@code reversedNum} (by multiplying by 10 and adding).
+     * Time Complexity: O(N^2) - where N is the length of the string.
+     * At each step, (e.g., "c" + "ba") creates a new string and copies
+     * all characters. The work is N + (N-1) + ... + 1, which is O(N^2).
      *
-     * @param num The number to reverse.
-     * @return The reversed number.
+     * @param str The string to reverse.
+     * @param idx The current index (should be called with str.length() - 1).
+     * @return The reversed string.
      */
-    public static int ReversedNumIteratively(int num) {
-        int reversedNum = 0;
+    public static String reverse(String str, int idx) {
+        // Base case: If we have gone past the first character
+        if (idx == -1) return "";
 
-        // Loop until all digits have been processed
-        while (num != 0) {
-            // 1. Multiply reversedNum by 10 to shift its digits left
-            // 2. Get the last digit of num using modulo 10
-            // 3. Add the last digit to reversedNum
-            reversedNum = reversedNum * 10 + num % 10;
-
-            // Remove the last digit from num
-            num = num / 10;
-        }
-
-        return reversedNum;
+        // Append the current char to the reversed result of the substring before it
+        return str.charAt(idx) + reverse(str, idx - 1);
     }
 
     /**
-     * Method 2 (Recursive): Uses recursion to place the last digit in its
-     * correct (first) position.
+     * Method 2 (Divide and Conquer): Splits the string into two halves,
+     * recursively reverses each half, and then concatenates them
+     * in reversed order (right + left).
      * <p>
-     * It takes the last digit ({@code num % 10}) and multiplies it by
-     * 10^(nDigits-1) to move it to the front. Then, it adds the result
-     * of the recursive call on the remaining number ({@code num / 10}).
+     * Time Complexity: O(N log N) - where N is the length of the string.
+     * The recurrence relation is T(N) = 2T(N/2) + O(N). It's O(N) at
+     * each level because the concatenation (right + left) must create
+     * a new string of length N. This is the same as Merge Sort.
      *
-     * @param num     The number to reverse.
-     * @param nDigits The number of digits in {@code num}.
-     * @return The reversed number.
+     * @param str   The string to reverse.
+     * @param start The starting index of the current substring.
+     * @param end   The ending index of the current substring.
+     * @return The reversed substring.
      */
-    public static int ReversedNumRecursively(int num, int nDigits) {
-        // Base case: If the number is 0, we are done.
-        if (num == 0) return 0;
+    public static String reverseDAC(String str, int start, int end) {
+        // Base case: If the substring is a single character
+        if (end == start) {
+            return String.valueOf(str.charAt(start));
+        }
 
-        // 1. Get the last digit (e.g., 123 -> 3)
-        int lastDigit = num % 10;
+        // Divide: Calculate the middle index
+        int mid = start + (end - start) / 2;
 
-        // 2. Place it in its correct position (e.g., 3 * 10^2 -> 300)
-        int positionedDigit = (int) (lastDigit * Math.pow(10, nDigits - 1));
+        // Conquer: Recurse on the left half
+        String left = reverseDAC(str, start, mid);
 
-        // 3. Recurse on the remaining number (e.g., 12) with one less digit
-        return positionedDigit + ReversedNumRecursively(num / 10, nDigits - 1);
+        // Conquer: Recurse on the right half
+        String right = reverseDAC(str, mid + 1, end);
+
+        // Combine: Concatenate the reversed halves in reverse order
+        return right + left;
     }
 
     public static void main(String[] args) {
-        // TestCase 1 (using Iterative)
-        int a = 8468413;
-        System.out.println("Iterative reverse of " + a + "\nis: " + ReversedNumIteratively(a));
-        // Expected: 3148648
+        // TestCase 1 (using DAC)
+        String a = "Mohamed";
+        System.out.println("DAC Reverse of : \"" + a + "\"");
+        System.out.println("is: \"" + reverseDAC(a, 0, a.length() - 1) + "\"");
+        // Expected: "demahoM"
 
         System.out.println("================================");
 
-        // TestCase 2 (using Recursive)
-        int b = 12345;
-        int bDigits = 5;
-        System.out.println("Recursive reverse of " + b + "\nis: " + ReversedNumRecursively(b, bDigits));
-        // Expected: 54321
+        // TestCase 2 (using Linear Recursion)
+        String b = "Hello World";
+        System.out.println("Linear Reverse of : \"" + b + "\"");
+        System.out.println("is: \"" + reverse(b, b.length() - 1) + "\"");
+        // Expected: "dlroW olleH"
 
         System.out.println("================================");
 
-        // TestCase 3 (using Recursive with trailing zero)
-        int c = 98700;
-        int cDigits = 5;
-        System.out.println("Recursive reverse of " + c + "\nis: " + ReversedNumRecursively(c, cDigits));
-        // Expected: 789 (Note: trailing zeros are lost, leading zeros in the
-        // result are also lost as it's an int)
+        // TestCase 3 (using DAC with even length)
+        String c = "Java";
+        System.out.println("DAC Reverse of : \"" + c + "\"");
+        System.out.println("is: \"" + reverseDAC(c, 0, c.length() - 1) + "\"");
+        // Expected: "avaJ"
     }
 }
