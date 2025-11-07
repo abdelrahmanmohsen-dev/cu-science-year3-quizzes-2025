@@ -6,9 +6,8 @@ import SortingAlgorithms.Heap.MaxHeap;
 public class HeapSort {
 
     /**
-     * Sorts an array in ascending order using a MinHeap.
-     * This implementation avoids the ClassCastException by
-     * polling elements back into the original array.
+     * Sorts an array in ascending order using a MaxHeap.
+     * Also you can make the same Algorithm using MinHeap with just reversing the last for-loop
      *
      * @param <T> The type of element (must be Comparable).
      * @param array The array to be sorted.
@@ -17,7 +16,7 @@ public class HeapSort {
         if (array == null || array.length < 2)
             return;
 
-        // 1. Create a MinHeap to sort in ascending order
+        // 1. Create a MaxHeap to sort in ascending order
         BinaryHeap<T> maxHeap = new MaxHeap<>();
 
         // 2. Add all elements from the array into the heap
@@ -26,7 +25,6 @@ public class HeapSort {
         }
 
         // 3. Poll all elements from the heap *back into the original array*
-        // This is the safe and correct way.
         for (int i = array.length - 1; i >= 0; i--) {
             array[i] = maxHeap.poll();
         }
