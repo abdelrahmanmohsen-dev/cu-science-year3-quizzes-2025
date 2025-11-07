@@ -15,7 +15,7 @@ public class Group_1 {
      * @param a the number to sum its digits
      * @return 0 if base case is reached
      */
-    public static int CountDigits(int a) {
+    public static int SumOfDigits(int a) {
         // Base case: if we get 0 then the method have reached every digit
         if (a == 0) return 0;
 

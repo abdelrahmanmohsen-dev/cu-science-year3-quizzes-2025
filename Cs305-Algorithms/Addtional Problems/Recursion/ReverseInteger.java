@@ -6,7 +6,7 @@
  * O(N) - where N is the number of digits in the integer.
  * Both solutions must process each digit of the number exactly once.
  */
-public class Group_2 {
+public class ReverseInteger {
 
     /**
      * Method 1 (Iterative): Uses a while-loop to build the reversed number.
