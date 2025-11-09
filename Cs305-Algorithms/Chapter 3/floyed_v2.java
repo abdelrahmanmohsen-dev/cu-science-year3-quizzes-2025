@@ -113,33 +113,37 @@ public class floyed_v2 {
         int[][] P = floyed2(W).getLast();
 
         // printing the D matrix
-        for(int[] nums : D) {
-            System.out.println(Arrays.toString(nums));
+        System.out.println("the D matrix is :");
+        for (int[] ints : D) {
+            System.out.println(Arrays.toString(ints));
         }
         /* Expected : [[0, 1, 3, 1, 4],
-        *             [8, 0, 3, 2, 5],
-        *             [10, 11, 0, 4, 7],
-        *             [6, 7, 2, 0, 3],
-        *             [3, 4, 6, 4, 0]]
-        */
+         *             [8, 0, 3, 2, 5],
+         *             [10, 11, 0, 4, 7],
+         *             [6, 7, 2, 0, 3],
+         *             [3, 4, 6, 4, 0]]
+         */
 
-        System.out.println("============================");
+        System.out.println("===================================");
 
         // printing the P matrix
-        for(int[] nums : P) {
-            System.out.println(Arrays.toString(nums));
+        System.out.println("the P matrix is :");
+        for (int[] ints : P) {
+            System.out.println(Arrays.toString(ints));
         }
         /* Expected: [[0, 0, 4, 0, 4]
-        *            [5, 0, 0, 0, 4]
-        *            [5, 5, 0, 0, 4]
-        *            [5, 5, 0, 0, 0]
-        *            [0, 1, 4, 1, 0]
-        */
+         *            [5, 0, 0, 0, 4]
+         *            [5, 5, 0, 0, 4]
+         *            [5, 5, 0, 0, 0]
+         *            [0, 1, 4, 1, 0]
+         */
 
 
         System.out.println("===========================");
 
-        // testing the path form v2 -> v1
-        path(2 , 1, W);
+        // printing the path from v2 -> v1
+        System.out.print("the path from v2 -> v1 is :");
+        path(2, 1, W);
+        // Expected: [v2, v4, v5, v1]
     }
 }

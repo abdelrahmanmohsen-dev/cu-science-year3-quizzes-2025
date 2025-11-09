@@ -90,20 +90,20 @@ public class BinomialCoefficientProblem {
      */
     public static void main(String[] args) {
         // TestCase1: Using the Recursive solution
-        System.out.println(RecursiveSolution(6, 3));
+        System.out.println("6C3 is equal to: " + RecursiveSolution(6, 3));
         // Expected: 6C3 = 20
 
         System.out.println("=====================");
 
         // TestCase2: Using the Optimized DP solution
         //            this test case will Apply symmetry optimization
-        System.out.println(DPSolution2(9, 7));
+        System.out.println("9C7 is equal to: " + DPSolution2(9, 7));
         // Expected: 9C2 = 36
 
         System.out.println("=====================");
 
         // TestCase3: Using the DP solution
-        System.out.println(DPSolution(10, 5));
+        System.out.println("10C5 is equal to: " + DPSolution(10, 5));
         // Expected: 10C5 = 252
     }
 }

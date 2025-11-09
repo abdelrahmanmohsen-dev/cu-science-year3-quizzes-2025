@@ -64,13 +64,15 @@ public class floyed_v1 {
         int[][] D = floyed1(W);
 
         // printing the D matrix
-        for (int[] nums : D) {
-            System.out.println(Arrays.toString(nums));
+        System.out.println("the D matrix is :");
+        for (int[] ints : D) {
+            System.out.println(Arrays.toString(ints));
         }
-        // Expected : [[0, 1, 3, 1, 4],
-        //             [8, 0, 3, 2, 5],
-        //             [10, 11, 0, 4, 7],
-        //             [6, 7, 2, 0, 3],
-        //             [3, 4, 6, 4, 0]]
+        /* Expected : [[0, 1, 3, 1, 4],
+         *             [8, 0, 3, 2, 5],
+         *             [10, 11, 0, 4, 7],
+         *             [6, 7, 2, 0, 3],
+         *             [3, 4, 6, 4, 0]]
+         */
     }
 }

@@ -146,14 +146,23 @@ class Test {
         FloyedAlgorithm f = new FloyedAlgorithm(W);
 
         // printing the path from v2 -> v1
+        System.out.print("the path from v2 -> v1 is :");
         f.path(2, 1);
+        // Expected: [v2, v4, v5, v1]
 
         // printing the path form v3 -> v2
+        System.out.print("the path from v3 -> v2 is :");
         f.path(3, 2);
+        // Expected: [v3, v4, v5, v1, v2]
+
+
+        System.out.println("===================================");
+
         int[][] D = f.getD();
         int[][] P = f.getP();
 
         // printing the D matrix
+        System.out.println("the D matrix is :");
         for (int[] ints : D) {
             System.out.println(Arrays.toString(ints));
         }
@@ -167,6 +176,7 @@ class Test {
         System.out.println("===================================");
 
         // printing the P matrix
+        System.out.println("the P matrix is :");
         for (int[] ints : P) {
             System.out.println(Arrays.toString(ints));
         }
