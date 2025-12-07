@@ -4,7 +4,7 @@ package Chapter4;
  * A simple Data structure to represent a weighted edge in a graph.
  * Used by graph algorithms like Prim's.
  */
-public class Edge {
+public class Edge implements Comparable<Edge> {
     int from;   // The starting vertex
     int to;     // The ending vertex
     int weight; // The cost/distance of the edge
@@ -50,5 +50,10 @@ public class Edge {
                 ", to=" + to +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+        return Integer.compare(this.weight, o.weight);
     }
 }
