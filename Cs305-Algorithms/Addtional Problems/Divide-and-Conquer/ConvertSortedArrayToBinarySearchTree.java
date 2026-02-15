@@ -1,4 +1,5 @@
 // Problem Link: https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/?envType=problem-list-v2&envId=divide-and-conquer
+// Please Read and try to solve the problem by yourself first 
 
 /**
  * Definition for a binary tree node.
