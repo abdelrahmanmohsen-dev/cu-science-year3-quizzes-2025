@@ -12,11 +12,6 @@ Each quiz folder may include questions, solutions, and references contributed by
 ```
 cu-science-year3-quizzes-2025/
 ├── Cs305-Algorithms/
-│   └── Semester_2_Spring_2026/
-│       └── quiz_1/
-│       └── task_1/
-│       └── task_2/
-|       └── ...
 │   └── quizzes/
 │       └── quiz-1/
 │           ├── group-1/
