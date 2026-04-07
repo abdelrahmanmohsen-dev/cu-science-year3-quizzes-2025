@@ -1,36 +1,48 @@
-📚 Cairo University – Faculty of Science
+# CU Science Year 3 Quizzes (2025)
 
-Third-Year Computer Science Quizzes Repository (2025)
+Academic repository for **third-year Computer Science students** at  
+**Faculty of Science, Cairo University**.
 
-This repository is a collaborative academic resource created by and for third-year students of the Faculty of Science, Computer Science Department – Cairo University.
-It aims to collect and organize all course quizzes in one centralized location to make studying and review easier for everyone in the department.
+This project organizes course-related materials (quizzes, tasks, and algorithm implementations) in one place for easier study and review.
 
-The repository is structured by semester, subject, quiz number, and group, ensuring that all materials are easy to find and navigate.
-Each quiz folder may include questions, solutions, and references contributed by students across different groups.
+## Repository Structure
 
-🗂️ Repository Structure
-```
+```text
 cu-science-year3-quizzes-2025/
-├── Cs305-Algorithms/
-│   └── quizzes/
-│       └── quiz-1/
-│           ├── group-1/
-│           ├── group-2/
-│           ├── group-3/
-│           └── group-4/
-└── ...
+├── Cs305_Algorithms/
+│   ├── Chapter_2/
+│   ├── Chapter_3/
+│   ├── Chapter_4/
+│   ├── Chapter_5/
+│   ├── SortingAlgorithms/
+│   ├── Quizzes/
+│   │   └── Quiz_1/
+│   └── Tasks/
+├── lib/
+└── README.md
 ```
-🎯 Purpose
 
-- Help students access and review past quizzes easily.
+## Purpose
 
-- Encourage collaborative learning and resource sharing.
+- Collect and organize learning materials for CS305 and related coursework.
+- Provide an easy-to-navigate archive for revision.
+- Support collaborative learning among students.
 
-- Serve as a study archive for future batches of Computer Science students.
+## Usage
 
-🤝 Contribution
+- Browse folders by topic/chapter/quiz/task.
+- Open Java files directly in IntelliJ IDEA or any Java IDE.
+- Read folder-level `README.md` files (where available) for extra notes.
 
-Students are welcome to contribute by uploading quizzes, solutions, or notes following the existing folder structure.
-Please ensure that your submissions are clear, properly labeled, and respectful of academic integrity.
+## Contribution
 
-Maintained by third-year Computer Science students – Cairo University, Faculty of Science
+Contributions are welcome:
+
+- Keep naming and folder structure consistent.
+- Place each solution/material in the correct chapter/quiz/task/group folder.
+- Prefer clear, readable code and short explanatory notes when needed.
+
+## Disclaimer
+
+This repository is for **educational and self-study purposes**.
+Please follow your course and university academic integrity rules when using these materials.
