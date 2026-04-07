@@ -30,7 +30,7 @@ cu-science-year3-quizzes-2025/
 
 ## Usage
 
-- Browse folders by topic/chapter/quiz/task.
+- Browse folders by topic, chapter, quiz, or task.
 - Open Java files directly in IntelliJ IDEA or any Java IDE.
 - Read folder-level `README.md` files (where available) for extra notes.
 
